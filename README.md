@@ -52,3 +52,13 @@ endif
 ```
 
 You can prepend `zz` to the expression: `'zz'.slash#blink(2, 50)`
+
+#### Don't immobilise the `*`/`#` and related mappings
+
+If you want `*`, `#`, `g*`, and `g#` to not move the cursor:
+
+```vim
+g:slash_use_immobile = 0
+```
+
+Currently affects the `map` mappings but not the `xmap` mappings.

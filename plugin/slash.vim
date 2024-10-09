@@ -116,9 +116,22 @@ map  <expr> n    <sid>wrap('n')
 map  <expr> N    <sid>wrap('N')
 map  <expr> gd   <sid>wrap('gd')
 map  <expr> gD   <sid>wrap('gD')
+
+if !exists('g:slash_use_immobile') || g:slash_use_immobile
 map  <expr> *    <sid>wrap(<sid>immobile('*'))
 map  <expr> #    <sid>wrap(<sid>immobile('#'))
 map  <expr> g*   <sid>wrap(<sid>immobile('g*'))
 map  <expr> g#   <sid>wrap(<sid>immobile('g#'))
+"xmap <expr> *    <sid>wrap(<sid>immobile("y/\<c-r>=<sid>escape(0)\<plug>(slash-cr)\<plug>(slash-cr)"))
+"xmap <expr> #    <sid>wrap(<sid>immobile("y?\<c-r>=<sid>escape(1)\<plug>(slash-cr)\<plug>(slash-cr)"))
+else
+map  <expr> *    <sid>wrap('*')
+map  <expr> #    <sid>wrap('#')
+map  <expr> g*   <sid>wrap('g*')
+map  <expr> g#   <sid>wrap('g#')
+"xmap <expr> *    <sid>wrap("y/\<c-r>=<sid>escape(0)\<plug>(slash-cr)\<plug>(slash-cr)")
+"xmap <expr> #    <sid>wrap("y?\<c-r>=<sid>escape(1)\<plug>(slash-cr)\<plug>(slash-cr)")
+endif
+
 xmap <expr> *    <sid>wrap(<sid>immobile("y/\<c-r>=<sid>escape(0)\<plug>(slash-cr)\<plug>(slash-cr)"))
 xmap <expr> #    <sid>wrap(<sid>immobile("y?\<c-r>=<sid>escape(1)\<plug>(slash-cr)\<plug>(slash-cr)"))
